@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
+class Student {
+    private:
+        int age;
+        std::string first_name;
+        std::string last_name;
+        int standard;
+
+    public:
+        void set_age(int new_age) {
+            age = new_age;
+        }
+
+        int get_age() const {
+            return age;
+        }
+
+        void set_first_name(const std::string& new_first_name) {
+            first_name = new_first_name;
+        }
+
+        std::string get_first_name() const {
+            return first_name;
+        }
+
+        void set_last_name(const std::string& new_last_name) {
+            last_name = new_last_name;
+        }
+
+        std::string get_last_name() const {
+            return last_name;
+        }
+
+        void set_standard(int new_standard) {
+            standard = new_standard;
+        }
+
+        int get_standard() const {
+            return standard;
+        }
+
+        std::string to_string() const {
+            std::stringstream ss;
+            ss << age << "," << first_name << "," << last_name << "," << standard;
+            return ss.str();
+        }
+};
+
+int main() {
+    int age, standard;
+    std::string first_name, last_name;
+
+    std::cin >> age;
+    std::cin >> first_name;
+    std::cin >> last_name;
+    std::cin >> standard;
+
+    Student st;
+
+    st.set_age(age);
+    st.set_first_name(first_name);
+    st.set_last_name(last_name);
+    st.set_standard(standard);
+
+    std::cout << st.get_age() << "\n";
+    std::cout << st.get_last_name() << ", " << st.get_first_name() << "\n";
+    std::cout << st.get_standard() << "\n\n";
+
+    std::cout << st.to_string() << "\n";
+
+    return 0;
+}
